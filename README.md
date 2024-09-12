@@ -58,7 +58,7 @@ To set up this project locally, follow these steps:
 
 5. Open your browser and navigate to `http://localhost:3000`.
 
-### **Expose Local Server with ngrok**
+### **Expose Local Server with ngrok (optional)**
 
 If you need to make your local server accessible over the internet (for testing, demos, etc.), you can use **ngrok**. Here's how:
 
