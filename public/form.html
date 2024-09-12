@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Inscripción</title>
+  </head>
+  <body>
+    <h1>Hoja de Inscripción</h1>
+    <a href="/logout">Cerrar Sesión</a>
+
+    <form
+      id="formulario"
+      action="/submit-form"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <!-- Subida de Imagen -->
+      <fieldset>
+        <legend>Subir Documento</legend>
+        <label for="imagen">Subir Imagen del Documento:</label>
+        <input
+          type="file"
+          id="imagen"
+          name="imagen"
+          accept="image/*"
+          required
+        />
+      </fieldset>
+
+      <!-- Hoja de Inscripción -->
+      <label for="hoja-inscripcion">Hoja de Inscripción:</label>
+      <input
+        type="text"
+        id="hoja-inscripcion"
+        name="hoja_inscripcion"
+        required
+      /><br />
+
+      <!-- Folio -->
+      <label for="folio">Folio:</label>
+      <input type="text" id="folio" name="folio" required /><br />
+
+      <!-- Fecha de Registro -->
+      <fieldset>
+        <legend>Fecha de Registro</legend>
+        <label for="registro-dia">Día:</label>
+        <input
+          type="number"
+          id="registro-dia"
+          name="fecha_registro[dia]"
+          min="1"
+          max="31"
+          required
+        /><br />
+        <label for="registro-mes">Mes:</label>
+        <input
+          type="number"
+          id="registro-mes"
+          name="fecha_registro[mes]"
+          min="1"
+          max="12"
+          required
+        /><br />
+        <label for="registro-ano">Año:</label>
+        <input
+          type="number"
+          id="registro-ano"
+          name="fecha_registro[ano]"
+          min="1"
+          required
+        /><br />
+      </fieldset>
+
+      <!-- Datos Generales -->
+      <fieldset>
+        <legend>Datos Generales</legend>
+        <label for="apellido-paterno">Apellido Paterno:</label>
+        <input
+          type="text"
+          id="apellido-paterno"
+          name="apellido_paterno"
+          required
+        /><br />
+        <label for="apellido-materno">Apellido Materno:</label>
+        <input
+          type="text"
+          id="apellido-materno"
+          name="apellido_materno"
+          required
+        /><br />
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required /><br />
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option></select
+        ><br />
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required /><br />
+
+        <!-- Fecha de Nacimiento -->
+        <fieldset>
+          <legend>Fecha de Nacimiento</legend>
+          <label for="nac-dia">Día:</label>
+          <input
+            type="number"
+            id="nac-dia"
+            name="nac-dia"
+            min="1"
+            max="31"
+            required
+          /><br />
+          <label for="nac-mes">Mes:</label>
+          <input
+            type="number"
+            id="nac-mes"
+            name="nac-mes"
+            min="1"
+            max="12"
+            required
+          /><br />
+          <label for="nac-ano">Año:</label>
+          <input
+            type="number"
+            id="nac-ano"
+            name="nac-ano"
+            min="1"
+            required
+          /><br />
+        </fieldset>
+
+        <label for="religion">Religión (Opcional):</label>
+        <input type="text" id="religion" name="religion" /><br />
+
+        <label for="lugar-nacimiento">Lugar de Nacimiento:</label>
+        <input
+          type="text"
+          id="lugar-nacimiento"
+          name="lugar_nacimiento"
+          required
+        /><br />
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required /><br />
+        <label for="municipio">Municipio:</label>
+        <input type="text" id="municipio" name="municipio" required /><br />
+        <label for="curp">CURP:</label>
+        <input type="text" id="curp" name="curp" required /><br />
+      </fieldset>
+
+      <!-- Datos Médicos -->
+      <fieldset>
+        <legend>Datos Médicos</legend>
+        <label for="diagnostico">Diagnóstico:</label>
+        <input type="text" id="diagnostico" name="diagnostico" required /><br />
+
+        <!-- Tratamiento (Opcional) -->
+        <fieldset>
+          <legend>Tratamiento (Opcional)</legend>
+          <label for="tratamiento-inicio-dia">Inicio Día:</label>
+          <input
+            type="number"
+            id="tratamiento-inicio-dia"
+            name="tratamiento_inicio_dia"
+            min="1"
+            max="31"
+          /><br />
+          <label for="tratamiento-inicio-mes">Inicio Mes:</label>
+          <input
+            type="number"
+            id="tratamiento-inicio-mes"
+            name="tratamiento_inicio_mes"
+            min="1"
+            max="12"
+          /><br />
+          <label for="tratamiento-inicio-ano">Inicio Año:</label>
+          <input
+            type="number"
+            id="tratamiento-inicio-ano"
+            name="tratamiento_inicio_ano"
+            min="1"
+          /><br />
+
+          <label for="tratamiento-termino-dia">Término Día:</label>
+          <input
+            type="number"
+            id="tratamiento-termino-dia"
+            name="tratamiento_termino_dia"
+            min="1"
+            max="31"
+          /><br />
+          <label for="tratamiento-termino-mes">Término Mes:</label>
+          <input
+            type="number"
+            id="tratamiento-termino-mes"
+            name="tratamiento_termino_mes"
+            min="1"
+            max="12"
+          /><br />
+          <label for="tratamiento-termino-ano">Término Año:</label>
+          <input
+            type="number"
+            id="tratamiento-termino-ano"
+            name="tratamiento_termino_ano"
+            min="1"
+          /><br />
+        </fieldset>
+
+        <label for="tipo-sangre">Tipo de Sangre (Opcional):</label>
+        <input type="text" id="tipo-sangre" name="tipo_sangre" /><br />
+
+        <label for="recaidas">Recaídas (Años) (Opcional):</label>
+        <input type="text" id="recaidas" name="recaidas" /><br />
+
+        <!-- Etapa o Status -->
+        <fieldset>
+          <legend>Etapa o Status</legend>
+          <label for="tratamiento">En Tratamiento:</label>
+          <input type="checkbox" id="tratamiento" name="tratamiento" /><br />
+          <label for="vigilancia">En Vigilancia:</label>
+          <input type="checkbox" id="vigilancia" name="vigilancia" /><br />
+          <label for="superviviente">Es Superviviente:</label>
+          <input
+            type="checkbox"
+            id="superviviente"
+            name="superviviente"
+          /><br />
+        </fieldset>
+
+        <label for="hospital">Hospital de Tratamiento:</label>
+        <input type="text" id="hospital" name="hospital" required /><br />
+        <label for="contacto-hospital"
+          >Número de Contacto del Hospital o Médico:</label
+        >
+        <input
+          type="text"
+          id="contacto-hospital"
+          name="contacto_hospital"
+          required
+        /><br />
+        <label for="medico-cedula">Médico Tratante / Cédula Profesional:</label>
+        <input
+          type="text"
+          id="medico-cedula"
+          name="medico_cedula"
+          required
+        /><br />
+      </fieldset>
+
+      <!-- Datos del Cuidador Primario -->
+      <fieldset>
+        <legend>Datos del Cuidador Primario</legend>
+        <label for="tutor-apellido-paterno">Apellido Paterno:</label>
+        <input
+          type="text"
+          id="tutor-apellido-paterno"
+          name="tutor_apellido_paterno"
+          required
+        /><br />
+        <label for="tutor-apellido-materno">Apellido Materno:</label>
+        <input
+          type="text"
+          id="tutor-apellido-materno"
+          name="tutor_apellido_materno"
+          required
+        /><br />
+        <label for="tutor-nombre">Nombre:</label>
+        <input
+          type="text"
+          id="tutor-nombre"
+          name="tutor_nombre"
+          required
+        /><br />
+
+        <!-- Fecha de Nacimiento del Tutor -->
+        <fieldset>
+          <legend>Fecha de Nacimiento del Tutor (Opcional)</legend>
+          <label for="tutor-nac-dia">Día:</label>
+          <input
+            type="number"
+            id="tutor-nac-dia"
+            name="tutor_nac_dia"
+            min="1"
+            max="31"
+          /><br />
+          <label for="tutor-nac-mes">Mes:</label>
+          <input
+            type="number"
+            id="tutor-nac-mes"
+            name="tutor_nac_mes"
+            min="1"
+            max="12"
+          /><br />
+          <label for="tutor-nac-ano">Año:</label>
+          <input
+            type="number"
+            id="tutor-nac-ano"
+            name="tutor_nac_ano"
+            min="1"
+          /><br />
+        </fieldset>
+
+        <label for="tutor-edad">Edad del Tutor:</label>
+        <input type="number" id="tutor-edad" name="tutor_edad" required /><br />
+        <label for="parentesco">Parentesco:</label>
+        <input type="text" id="parentesco" name="parentesco" required /><br />
+        <label for="tutor-telefono">Teléfono de Contacto:</label>
+        <input
+          type="text"
+          id="tutor-telefono"
+          name="tutor_telefono"
+          required
+        /><br />
+        <label for="tutor-curp">CURP del Tutor:</label>
+        <input type="text" id="tutor-curp" name="tutor_curp" required /><br />
+        <label for="tutor-identificacion">Identificación Oficial:</label>
+        <input
+          type="text"
+          id="tutor-identificacion"
+          name="tutor_identificacion"
+          required
+        /><br />
+      </fieldset>
+
+      <!-- Documentos Generales -->
+      <fieldset>
+        <legend>Documentos Generales</legend>
+        <label for="acta-nacimiento">Acta de Nacimiento:</label>
+        <input
+          type="checkbox"
+          id="acta-nacimiento"
+          name="acta_nacimiento"
+        /><br />
+        <label for="comprobante-domicilio">Comprobante de Domicilio:</label>
+        <input
+          type="checkbox"
+          id="comprobante-domicilio"
+          name="comprobante_domicilio"
+        /><br />
+
+        <label for="recibe-apoyo">¿Recibe Apoyo de Otra Institución?</label>
+        <input type="checkbox" id="recibe-apoyo" name="recibe_apoyo" /><br />
+        <label for="institucion-apoyo">¿Cuál?:</label>
+        <input
+          type="text"
+          id="institucion-apoyo"
+          name="institucion_apoyo"
+        /><br />
+      </fieldset>
+
+      <input type="submit" value="Enviar" />
+    </form>
+
+    <!-- autocompletado -->
+    <script>
+      document
+        .getElementById("imagen")
+        .addEventListener("change", async function (event) {
+          console.log("Imagen seleccionada");
+
+          const formData = new FormData();
+          const fileInput = document.getElementById("imagen").files[0];
+          console.log("Archivo seleccionado:", fileInput);
+          formData.append("imagen", fileInput);
+
+          try {
+            const response = await fetch("/upload", {
+              method: "POST",
+              body: formData,
+            });
+            console.log("Petición enviada al servidor");
+
+            const result = await response.json();
+            console.log("Datos recibidos del servidor:", result);
+
+            if (result && typeof result === "object") {
+              console.log("Autocompletando el formulario...");
+
+              // Hoja de Inscripción
+              document.getElementById("hoja-inscripcion").value =
+                result["Hoja de Inscripción"] || "";
+
+              // autocompletar el formulario con los datos recibidos
+              document.getElementById("folio").value = result["Folio"] || "";
+
+              // Fecha de Registro
+              document.getElementById("registro-dia").value =
+                result["Fecha de Registro"]["Día"] || "";
+              document.getElementById("registro-mes").value =
+                result["Fecha de Registro"]["Mes"] || "";
+              document.getElementById("registro-ano").value =
+                result["Fecha de Registro"]["Año"] || "";
+
+              // Datos Generales
+              document.getElementById("apellido-paterno").value =
+                result["Datos Generales"]["Nombre"]["Apellido Paterno"] || "";
+              document.getElementById("apellido-materno").value =
+                result["Datos Generales"]["Nombre"]["Apellido Materno"] || "";
+              document.getElementById("nombre").value =
+                result["Datos Generales"]["Nombre"]["Nombre"] || "";
+              document.getElementById("genero").value =
+                result["Datos Generales"]["Género"] || "";
+              document.getElementById("edad").value =
+                result["Datos Generales"]["Edad"] || "";
+
+              // Fecha de Nacimiento
+              document.getElementById("nac-dia").value =
+                result["Datos Generales"]["Fecha de nacimiento"]["Día"] || "";
+              document.getElementById("nac-mes").value =
+                result["Datos Generales"]["Fecha de nacimiento"]["Mes"] || "";
+              document.getElementById("nac-ano").value =
+                result["Datos Generales"]["Fecha de nacimiento"]["Año"] || "";
+
+              document.getElementById("lugar-nacimiento").value =
+                result["Datos Generales"]["Lugar de nacimiento"] || "";
+              document.getElementById("direccion").value =
+                result["Datos Generales"]["Dirección"] || "";
+              document.getElementById("municipio").value =
+                result["Datos Generales"]["Municipio"] || "";
+              document.getElementById("curp").value =
+                result["Datos Generales"]["CURP"] || "";
+
+              // Datos Médicos
+              document.getElementById("diagnostico").value =
+                result["Datos Médicos"]["Diagnóstico"] || "";
+
+              // Tratamiento (Opcional)
+              document.getElementById("tratamiento-inicio-dia").value =
+                result["Datos Médicos"]["Tratamiento"]?.[
+                  "Inicio Tratamiento"
+                ]?.["Día"] || "";
+              document.getElementById("tratamiento-inicio-mes").value =
+                result["Datos Médicos"]["Tratamiento"]?.[
+                  "Inicio Tratamiento"
+                ]?.["Mes"] || "";
+              document.getElementById("tratamiento-inicio-ano").value =
+                result["Datos Médicos"]["Tratamiento"]?.[
+                  "Inicio Tratamiento"
+                ]?.["Año"] || "";
+              document.getElementById("tratamiento-termino-dia").value =
+                result["Datos Médicos"]["Tratamiento"]?.[
+                  "Termino Tratamiento"
+                ]?.["Día"] || "";
+              document.getElementById("tratamiento-termino-mes").value =
+                result["Datos Médicos"]["Tratamiento"]?.[
+                  "Termino Tratamiento"
+                ]?.["Mes"] || "";
+              document.getElementById("tratamiento-termino-ano").value =
+                result["Datos Médicos"]["Tratamiento"]?.[
+                  "Termino Tratamiento"
+                ]?.["Año"] || "";
+
+              document.getElementById("tipo-sangre").value =
+                result["Datos Médicos"]["Tipo de sangre"] || "";
+              document.getElementById("recaidas").value = result[
+                "Datos Médicos"
+              ]["Recaídas"]
+                ? result["Datos Médicos"]["Recaídas"]["Años"].join(", ")
+                : "";
+              document.getElementById("hospital").value =
+                result["Datos Médicos"]["Hospital de tratamiento"] || "";
+              document.getElementById("contacto-hospital").value =
+                result["Datos Médicos"][
+                  "Número de contacto del hospital y médico"
+                ] || "";
+              document.getElementById("medico-cedula").value =
+                result["Datos Médicos"]["Médico tratante/Cédula profesional"] ||
+                "";
+
+              // Datos del Cuidador Primario
+              document.getElementById("tutor-apellido-paterno").value =
+                result["Datos del Cuidador Primario"]["Padre o Tutor"][
+                  "Apellido Paterno"
+                ] || "";
+              document.getElementById("tutor-apellido-materno").value =
+                result["Datos del Cuidador Primario"]["Padre o Tutor"][
+                  "Apellido Materno"
+                ] || "";
+              document.getElementById("tutor-nombre").value =
+                result["Datos del Cuidador Primario"]["Padre o Tutor"][
+                  "Nombre"
+                ] || "";
+
+              document.getElementById("tutor-edad").value =
+                result["Datos del Cuidador Primario"]["Edad"] || "";
+              document.getElementById("parentesco").value =
+                result["Datos del Cuidador Primario"]["Parentesco"] || "";
+              document.getElementById("tutor-telefono").value =
+                result["Datos del Cuidador Primario"]["Teléfono de contacto"] ||
+                "";
+              document.getElementById("tutor-curp").value =
+                result["Datos del Cuidador Primario"]["CURP"] || "";
+              document.getElementById("tutor-identificacion").value =
+                result["Datos del Cuidador Primario"][
+                  "Identificación Oficial"
+                ] || "";
+
+              // Documentos Generales
+              document.getElementById("acta-nacimiento").checked =
+                result["Documentos Generales"]["Acta de Nacimiento"] || false;
+              document.getElementById("comprobante-domicilio").checked =
+                result["Documentos Generales"]["Comprobante de domicilio"] ||
+                false;
+              document.getElementById("recibe-apoyo").checked =
+                result["Documentos Generales"][
+                  "¿Recibe apoyo de alguna otra institución?"
+                ]["Respuesta"] || false;
+              document.getElementById("institucion-apoyo").value =
+                result["Documentos Generales"][
+                  "¿Recibe apoyo de alguna otra institución?"
+                ]["Cuál"] || "";
+            } else {
+              console.error("Error: los datos recibidos no son válidos");
+            }
+          } catch (error) {
+            console.error("Error al procesar la imagen:", error);
+          }
+        });
+    </script>
+  </body>
+</html>
