@@ -122,11 +122,3 @@ In production environments, services like Railway typically set the `PORT` envir
 ## **License**
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-### Changes:
-
-1. **Added the `PORT` environment variable** to the "Environment Variables" section.
-2. **Provided a sample `.env` file** for easy reference.
-3. **Clarified that Railway sets the `PORT` dynamically** in production environments, ensuring users understand how the application binds to the correct port.
