@@ -58,6 +58,18 @@ To set up this project locally, follow these steps:
 
 5. Open your browser and navigate to `http://localhost:3000`.
 
+### **Expose Local Server with ngrok**
+
+If you need to make your local server accessible over the internet (for testing, demos, etc.), you can use **ngrok**. Here's how:
+
+1. Install ngrok (if not already installed) from [ngrok.com](https://ngrok.com/).
+2. Start your local application (`npm start`).
+3. In a new terminal, run the following command to expose port 3000:
+   ```bash
+   ngrok http 3000
+   ```
+4. You will get a forwarding URL (e.g., `https://random-id.ngrok.io`). Use this URL to access your local app from anywhere.
+
 ## **Usage**
 
 1. Open the application in your browser.
