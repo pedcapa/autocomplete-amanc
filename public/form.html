@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario de Inscripción</title>
+    <style>
+      .loading {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: #000;
+      }
+    </style>
   </head>
   <body>
     <h1>Hoja de Inscripción</h1>
     <a href="/logout">Cerrar Sesión</a>
+
+    <!-- Loading animation -->
+    <div id="loading" class="loading">Procesando, por favor espere...</div>
 
     <form
       id="formulario"
@@ -28,7 +42,6 @@
         />
       </fieldset>
 
-      <!-- Hoja de Inscripción -->
       <label for="hoja-inscripcion">Hoja de Inscripción:</label>
       <input
         type="text"
@@ -211,6 +224,7 @@
         <label for="tipo-sangre">Tipo de Sangre (Opcional):</label>
         <input type="text" id="tipo-sangre" name="tipo_sangre" /><br />
 
+        <!-- Recaídas (Opcional) -->
         <label for="recaidas">Recaídas (Años) (Opcional):</label>
         <input type="text" id="recaidas" name="recaidas" /><br />
 
@@ -355,6 +369,8 @@
 
     <!-- autocompletado -->
     <script>
+      const loadingElement = document.getElementById("loading");
+
       document
         .getElementById("imagen")
         .addEventListener("change", async function (event) {
@@ -366,6 +382,8 @@
           formData.append("imagen", fileInput);
 
           try {
+            loadingElement.style.display = "block";
+
             const response = await fetch("/upload", {
               method: "POST",
               body: formData,
@@ -378,11 +396,14 @@
             if (result && typeof result === "object") {
               console.log("Autocompletando el formulario...");
 
+              // Hide loading animation after receiving response
+              loadingElement.style.display = "none";
+
               // Hoja de Inscripción
               document.getElementById("hoja-inscripcion").value =
                 result["Hoja de Inscripción"] || "";
 
-              // autocompletar el formulario con los datos recibidos
+              // Autocompletar el formulario con los datos recibidos
               document.getElementById("folio").value = result["Folio"] || "";
 
               // Fecha de Registro
@@ -513,9 +534,11 @@
                 ]["Cuál"] || "";
             } else {
               console.error("Error: los datos recibidos no son válidos");
+              loadingElement.style.display = "none"; // hide loading animation in case of error
             }
           } catch (error) {
             console.error("Error al procesar la imagen:", error);
+            loadingElement.style.display = "none"; // hide loading animation in case of error
           }
         });
     </script>
