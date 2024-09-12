@@ -41,7 +41,7 @@ To set up this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/datamatic-amanc.git
+   git clone https://github.com/pedcapa/datamatic-amanc.git
    ```
 2. Navigate to the project directory:
    ```bash
