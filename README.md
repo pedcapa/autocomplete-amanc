@@ -7,6 +7,7 @@
 - [Problem Statement](#problem-statement)
 - [Features](#features)
 - [Installation](#installation)
+- [Environment Variables](#environment-variables)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Future Enhancements](#future-enhancements)
@@ -51,11 +52,12 @@ To set up this project locally, follow these steps:
    ```bash
    npm install
    ```
-4. Start the application:
+4. Set up your environment variables (see **Environment Variables** section below).
+5. Start the application:
    ```bash
    npm start
    ```
-5. Open your browser and navigate to `http://localhost:3000`.
+6. Open your browser and navigate to `http://localhost:3000`.
 
 ### **Expose Local Server with ngrok (optional)**
 
@@ -68,6 +70,28 @@ If you need to make your local server accessible over the internet (for testing,
    ngrok http 3000
    ```
 4. You will get a forwarding URL (e.g., `https://random-id.ngrok.io`). Use this URL to access your local app from anywhere.
+
+## **Environment Variables**
+
+In your project, create a `.env` file in the root directory. Below is a list of environment variables that need to be configured:
+
+### **Required Variables**:
+
+1. **`OPENAI_API_KEY`**: Your OpenAI API key for processing document analysis.
+
+   ```bash
+   OPENAI_API_KEY=your-openai-api-key-here
+   ```
+
+### **Example `.env` File**:
+
+```bash
+OPENAI_API_KEY=your-openai-api-key-here
+```
+
+### **Note**:
+
+In production environments, services like Railway typically set the `PORT` environment variable automatically, so you don't need to define it manually for deployment. This ensures the app will bind to the dynamically assigned port.
 
 ## **Usage**
 
@@ -98,3 +122,11 @@ If you need to make your local server accessible over the internet (for testing,
 ## **License**
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+### Changes:
+
+1. **Added the `PORT` environment variable** to the "Environment Variables" section.
+2. **Provided a sample `.env` file** for easy reference.
+3. **Clarified that Railway sets the `PORT` dynamically** in production environments, ensuring users understand how the application binds to the correct port.
