@@ -20,9 +20,12 @@ The current system relies heavily on manual data entry using Excel sheets, which
 
 ## **Features**
 
+- **User Authentication (New)**: Login functionality with session management ensures only authorized users can access the registration form.
 - **Image Upload and Analysis**: Upload an image of a document, and the system will automatically extract relevant data, reducing the need for manual entry.
 - **Form Autofill**: After analyzing a document, the extracted data is used to populate the registration form automatically.
-- **Real-time Updates**: When any data is modified, it will update across the entire database in real-time.
+- **Form Submission Confirmation (New)**: After submitting the form, users are redirected to a confirmation page that verifies successful submission.
+- **Logout Option (New)**: Users can securely log out from the form and confirmation pages.
+- **Real-time Updates**: When any data is modified, it will update across the entire system in real-time.
 - **QR Code Integration (Planned)**: Generate QR codes for physical documents, linking them to their digital records for easy access and retrieval.
 
 ## **Installation**
@@ -45,17 +48,13 @@ To set up this project locally, follow these steps:
    cd autocomplete-amanc-main
    ```
 3. Install the necessary dependencies:
-
    ```bash
    npm install
    ```
-
 4. Start the application:
-
    ```bash
    npm start
    ```
-
 5. Open your browser and navigate to `http://localhost:3000`.
 
 ### **Expose Local Server with ngrok (optional)**
@@ -72,16 +71,19 @@ If you need to make your local server accessible over the internet (for testing,
 
 ## **Usage**
 
-1. Open the application in your browser.
-2. Upload a document image through the form.
-3. The application will analyze the image, extract relevant data (e.g., name, birthdate, address), and auto-populate the registration form.
-4. Submit the form to store the data in the system.
+1. **Login**: Navigate to the login page and authenticate using the default credentials (`admin` / `admin`).
+2. **Access the Form**: Once logged in, you will be redirected to the form page where you can upload an image and auto-fill the registration form.
+3. **Upload a Document**: Use the form to upload a document image. The system will analyze the image and extract relevant data (e.g., name, birthdate, address).
+4. **Submit the Form**: After auto-filling, verify the information and submit the form.
+5. **Confirmation**: After form submission, a confirmation page will appear to indicate that the form was successfully sent. From this page, you can choose to submit another form or log out.
+6. **Logout**: Users can log out from the form or confirmation pages.
 
 ## **Technologies Used**
 
 - **Backend**: Node.js, Express.js
 - **Frontend**: HTML, CSS, JavaScript
 - **Document Processing**: External API (e.g., OCR for image analysis)
+- **Session Management**: `express-session` for login and authentication
 - **Database**: (Planned integration - MongoDB/MySQL/PostgreSQL)
 - **QR Code Library**: (Planned for QR generation)
 
@@ -89,8 +91,9 @@ If you need to make your local server accessible over the internet (for testing,
 
 - **QR Code Generation**: Automatically generate and print QR codes for digital document linking.
 - **Database Integration**: Store extracted data in a structured database for easy access and management.
-- **User Roles**: Implement user authentication and role-based access for volunteers, admins, etc.
+- **User Roles**: Implement role-based access for volunteers, admins, etc.
 - **Security Enhancements**: Secure sensitive data using encryption.
+- **OAuth Login**: Add support for OAuth login using popular providers like Google, Facebook, etc.
 
 ## **License**
 
