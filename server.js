@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // var in .env file
@@ -279,5 +279,5 @@ app.get("/logout", (req, res) => {
 app.use("/uploads", express.static(path.join(path.resolve(), "uploads")));
 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`); // Logs the correct port in use
 });
