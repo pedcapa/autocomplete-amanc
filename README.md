@@ -89,10 +89,6 @@ In your project, create a `.env` file in the root directory. Below is a list of 
 OPENAI_API_KEY=your-openai-api-key-here
 ```
 
-### **Note**:
-
-In production environments, services like Railway typically set the `PORT` environment variable automatically, so you don't need to define it manually for deployment. This ensures the app will bind to the dynamically assigned port.
-
 ## **Usage**
 
 1. **Login**: Navigate to the login page and authenticate using the default credentials (`admin` / `admin`).
